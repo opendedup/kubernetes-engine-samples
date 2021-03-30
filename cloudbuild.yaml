@@ -3,7 +3,6 @@ steps:
   args:
       - --destination=gcr.io/$PROJECT_ID/hello-app:$BRANCH_NAME
       - --cache=false
-      - --target=builder
       - --cache-ttl=10h
       - --dockerfile=hello-app/Dockerfile
 substitutions:
