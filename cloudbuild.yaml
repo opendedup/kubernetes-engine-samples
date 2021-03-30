@@ -1,0 +1,13 @@
+steps:
+- name: gcr.io/kaniko-project/executor:latest
+  args:
+      - --destination=gcr.io/$PROJECT_ID/hello-app:$BRANCH_NAME
+      - --cache=false
+      - --target=builder
+      - --cache-ttl=10h
+      - --dockerfile=hello-app/Dockerfile
+substitutions:
+  _DIST_BUCKET: abucket # default value
+timeout: 10800s
+options:
+  machineType: 'N1_HIGHCPU_32'
