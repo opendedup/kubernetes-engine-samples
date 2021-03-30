@@ -5,6 +5,13 @@ steps:
       - --cache=false
       - --cache-ttl=10h
       - --dockerfile=hello-app/Dockerfile
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --filename=hello-app/manifests/hello-deployment.yaml
+  - --image=gcr.io/$PROJECT_ID/hello-app:$SHORT_SHA
+  - --location=us-central1-c
+  - --cluster=cluster-1
 substitutions:
   _DIST_BUCKET: abucket # default value
 timeout: 10800s
