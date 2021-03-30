@@ -1,0 +1,3 @@
+kubectl apply -f manifests/helloweb-deployment.yaml
+kubectl expose deployment hello-app --name=hello-app-service --type=LoadBalancer --port 80 --target-port 8080 service/hello-app-service exposed
+kubectl get service
