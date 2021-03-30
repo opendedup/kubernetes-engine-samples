@@ -8,7 +8,7 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
-  - --filename=hello-app/manifests/hello-deployment.yaml
+  - --filename=hello-app/manifests/helloweb-deployment.yaml
   - --image=gcr.io/$PROJECT_ID/hello-app:$SHORT_SHA
   - --location=us-central1-c
   - --cluster=cluster-1
